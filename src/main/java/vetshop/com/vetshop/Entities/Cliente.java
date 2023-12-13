@@ -8,7 +8,7 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private int id;
+    private long id;
 
     @Column(name = "NOME",nullable = false)
     private String nome;
