@@ -1,19 +1,30 @@
 package vetshop.com.vetshop.Entities;
 import jakarta.persistence.*;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.UUID;
+
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "Cliente")
+@Table(name = "CLIENTE")
 
 public class Cliente {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "UUID")
     @Column(name = "ID")
-    private long id;
+    private UUID id;
 
-    @Column(name = "NOME",nullable = false)
+    @Column(name = "NOME",nullable = true)
     private String nome;
 
-    @Column(name = "CPF",nullable = false)
+    @Column(name = "CPF",nullable = true)
     private String cpf;
 
     @Column(name = "TEL1")
@@ -31,9 +42,10 @@ public class Cliente {
     @Column(name = "BAIRRO")
     private String bairro;
 
-    @Column(name = "NUMERO_CASA",nullable = false)
+    @Column(name = "NUMERO_CASA",nullable = true)
     private int numeroCasa;
 
-    @Column(name = "CEP",nullable = false)
+
+    @Column(name = "CEP",nullable = true)
     private String cep;
 }

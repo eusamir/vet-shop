@@ -1,15 +1,26 @@
+package vetshop.com.vetshop.Entities;
+
 import jakarta.persistence.*;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.UUID;
+
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "RACA")
 public class Raca {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "UUID")
     @Column(name = "ID")
-    private int id;
+    private UUID id;
 
-    @Column(name = "NOME", nullable = false)
+    @Column(name = "NOME", nullable = true)
     private String nome;
-
-    
 }

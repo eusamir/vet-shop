@@ -2,20 +2,21 @@ package vetshop.com.vetshop.Entities;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+import java.util.UUID;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.UUID;
 
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "EXAME")
-public class Exame {
+@Table(name = "SERVICO")
+public class Servico {
     @Id
     @GeneratedValue(generator = "UUID")
     @Column(name = "ID")
@@ -24,10 +25,9 @@ public class Exame {
     @Column(name = "NOME",nullable = true)
     private String nome;
 
-    @Column(name = "RESULTADO",nullable = true)
-    private String resultado;
+    @Column(name = "VALOR_TRATAMENTO",nullable = true)
+    private BigDecimal valorTratamento;
 
-    @ManyToOne
-    @JoinColumn(name = "ID_CONSULTA_FK", referencedColumnName = "ID", nullable = true)
-    private Consulta consulta;
+    @Column(name = "DESCRICAO",nullable = true)
+    private String descricao;
 }
