@@ -13,17 +13,17 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "ANIMAL")
+@Table(name = "RECEITA")
 public class Receita {
     @Id
     @GeneratedValue(generator = "UUID")
     @Column(name = "ID")
     private UUID id;
 
-    @Column(name = "PRESCRICAO", nullable = true)
+    @Column(name = "PRESCRICAO", nullable = false)
     private String prescricao;
 
     @ManyToOne
-    @JoinColumn(name = "ID_CONSULTA_FK", referencedColumnName = "ID", nullable = true)
+    @JoinColumn(name = "ID_CONSULTA_FK", referencedColumnName = "ID", nullable = false)
     private Consulta consulta;
 }

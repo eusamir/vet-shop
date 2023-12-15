@@ -29,10 +29,10 @@ public class TratamentoConsulta {
     private Boolean feito;
 
     @ManyToOne
-    @JoinColumn(name = "ID_CONSULTA_FK",referencedColumnName = "ID",nullable = true)
+    @JoinColumn(name = "ID_CONSULTA_FK",referencedColumnName = "ID",nullable = false)
     private Consulta consulta;
 
     @ManyToOne
-    @JoinColumn(name = "ID_SERVICO_FK",referencedColumnName = "ID",nullable = true)
+    @JoinColumn(name = "ID_SERVICO_FK",referencedColumnName = "ID",nullable = false)
     private Servico servicoTratamento;
 }

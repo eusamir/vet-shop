@@ -22,12 +22,12 @@ public class Servico {
     @Column(name = "ID")
     private UUID id;
 
-    @Column(name = "NOME",nullable = true)
+    @Column(name = "NOME",nullable = false)
     private String nome;
 
-    @Column(name = "VALOR_TRATAMENTO",nullable = true)
+    @Column(name = "VALOR_TRATAMENTO",nullable = false)
     private BigDecimal valorTratamento;
 
-    @Column(name = "DESCRICAO",nullable = true)
+    @Column(name = "DESCRICAO",nullable = false)
     private String descricao;
 }

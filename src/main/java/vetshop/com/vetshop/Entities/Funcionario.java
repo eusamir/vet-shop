@@ -20,10 +20,10 @@ public class Funcionario {
     @Column(name = "ID")
     private UUID id;
 
-    @Column(name = "NOME",nullable = true)
+    @Column(name = "NOME",nullable = false)
     private String nome;
 
-    @Column(name = "CPF",nullable = true)
+    @Column(name = "CPF",nullable = false)
     private String cpf;
 
     @Column(name = "TEL1")
@@ -41,9 +41,9 @@ public class Funcionario {
     @Column(name = "BAIRRO")
     private String bairro;
 
-    @Column(name = "NUMERO_CASA",nullable = true)
+    @Column(name = "NUMERO_CASA",nullable = false)
     private int numeroCasa;
 
-    @Column(name = "CEP",nullable = true)
+    @Column(name = "CEP",nullable = false)
     private String cep;
 }

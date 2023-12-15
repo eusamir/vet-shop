@@ -21,6 +21,6 @@ public class Raca {
     @Column(name = "ID")
     private UUID id;
 
-    @Column(name = "NOME", nullable = true)
+    @Column(name = "NOME", nullable = false)
     private String nome;
 }

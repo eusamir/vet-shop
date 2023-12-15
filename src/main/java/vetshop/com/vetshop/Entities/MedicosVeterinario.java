@@ -21,13 +21,13 @@ public class MedicosVeterinario extends Funcionario{
     @Column(name = "ID")
     private UUID id;
 
-    @Column(name = "CRMV", nullable = true)
+    @Column(name = "CRMV", nullable = false)
     private long crmv;
 
-    @Column(name = "ESPECIALIDADE", nullable = true)
+    @Column(name = "ESPECIALIDADE", nullable = false)
     private String especialidade;
 
     @OneToOne
-    @JoinColumn(name = "ID_FUNCIONARIO_FK", referencedColumnName = "ID", nullable = true)
+    @JoinColumn(name = "ID_FUNCIONARIO_FK", referencedColumnName = "ID", nullable = false)
     private Funcionario funcionario;
 }

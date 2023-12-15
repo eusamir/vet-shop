@@ -1,23 +1,41 @@
 package vetshop.com.vetshop.Controllers;
 
+import jakarta.persistence.Table;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import vetshop.com.vetshop.DTO.AnimalDto;
+import vetshop.com.vetshop.Entities.Animal;
 import vetshop.com.vetshop.Repositories.IAnimalRepository;
+import vetshop.com.vetshop.Repositories.IClienteRepository;
+import vetshop.com.vetshop.Services.AnimalService;
+
+import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/animal")
 public class AnimalController {
 
     @Autowired
-    private IAnimalRepository animalRepository;
+    private AnimalService animalService;
 
 
     @GetMapping("/")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity list(HttpServletRequest request){
-        return ResponseEntity.ok().body(this.animalRepository.findAll());
+    public List<AnimalDto> findAll(){
+        List<AnimalDto> result = animalService.findAll();
+        return  result;
+    }
+
+    @GetMapping("/{id}")
+    public  AnimalDto findById(@PathVariable UUID id){
+        return animalService.findById(id);
+    }
+
+    @PostMapping("/create")
+    public AnimalDto create(@RequestBody AnimalDto animalDto){
+        return animalService.create(animalDto);
     }
 }

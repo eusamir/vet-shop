@@ -21,13 +21,13 @@ public class Exame {
     @Column(name = "ID")
     private UUID id;
 
-    @Column(name = "NOME",nullable = true)
+    @Column(name = "NOME",nullable = false)
     private String nome;
 
-    @Column(name = "RESULTADO",nullable = true)
+    @Column(name = "RESULTADO",nullable = false)
     private String resultado;
 
     @ManyToOne
-    @JoinColumn(name = "ID_CONSULTA_FK", referencedColumnName = "ID", nullable = true)
+    @JoinColumn(name = "ID_CONSULTA_FK", referencedColumnName = "ID", nullable = false)
     private Consulta consulta;
 }

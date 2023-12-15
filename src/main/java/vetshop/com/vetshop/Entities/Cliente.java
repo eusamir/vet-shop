@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import vetshop.com.vetshop.DTO.ClienteDto;
 
 import java.util.UUID;
 
@@ -21,10 +22,10 @@ public class Cliente {
     @Column(name = "ID")
     private UUID id;
 
-    @Column(name = "NOME",nullable = true)
+    @Column(name = "NOME",nullable = false)
     private String nome;
 
-    @Column(name = "CPF",nullable = true)
+    @Column(name = "CPF",nullable = false)
     private String cpf;
 
     @Column(name = "TEL1")
@@ -42,10 +43,18 @@ public class Cliente {
     @Column(name = "BAIRRO")
     private String bairro;
 
-    @Column(name = "NUMERO_CASA",nullable = true)
+    @Column(name = "NUMERO_CASA",nullable = false)
     private int numeroCasa;
 
 
-    @Column(name = "CEP",nullable = true)
+    @Column(name = "CEP",nullable = false)
     private String cep;
+
+    public Cliente(ClienteDto clienteDto) {
+        this.id = clienteDto.getId();
+        this.nome = clienteDto.getNome();
+        this.cpf = clienteDto.getCpf();
+        this.numeroCasa = clienteDto.getNumeroCasa();
+        this.cep = clienteDto.getCep();
+    }
 }

@@ -22,13 +22,13 @@ public class Consulta {
     @Column(name = "ID")
     private UUID id;
 
-    @Column(name = "DATA_HORA_INICIO", nullable = true)
+    @Column(name = "DATA_HORA_INICIO", nullable = false)
     private Date dataHoraInicio;
 
-    @Column(name = "DATA_RETORNO", nullable = true)
+    @Column(name = "DATA_RETORNO", nullable = false)
     private Date dataRetorno;
 
-    @Column(name = "HISTORICO_RELATADO", nullable = true)
+    @Column(name = "HISTORICO_RELATADO", nullable = false)
     private String historicoRelatado;
 
     @ManyToOne
@@ -36,10 +36,10 @@ public class Consulta {
     private Animal animal;
 
     @ManyToOne
-    @JoinColumn(name = "ID_FUNCIONARIO_ATENDENTE_FK", referencedColumnName = "ID", nullable = true)
+    @JoinColumn(name = "ID_FUNCIONARIO_ATENDENTE_FK", referencedColumnName = "ID", nullable = false)
     private Funcionario atendente;
 
     @ManyToOne
-    @JoinColumn(name = "ID_MEDICO_FK", referencedColumnName = "ID", nullable = true)
+    @JoinColumn(name = "ID_MEDICO_FK", referencedColumnName = "ID", nullable = false)
     private MedicosVeterinario medico;
 }

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import vetshop.com.vetshop.DTO.AnimalDto;
 
 import java.util.UUID;
 
@@ -38,4 +39,12 @@ public class Animal{
     @ManyToOne
     @JoinColumn(name = "ID_CLIENTE_FK", referencedColumnName ="ID", nullable = false)
     private Cliente dono;
+
+    public Animal(AnimalDto animalDto){
+        this.id= animalDto.getId();
+        this.nome= animalDto.getNome();
+        this.dono= animalDto.getDono();
+        this.raca = animalDto.getRaca();
+        this.tipo = animalDto.getTipo();
+    }
 }
