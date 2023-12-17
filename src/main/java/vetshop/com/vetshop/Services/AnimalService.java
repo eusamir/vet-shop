@@ -30,4 +30,17 @@ public class AnimalService {
         return new AnimalDto(animalRepository.save(animal));
     }
 
+    public AnimalDto update(AnimalDto animalDto){
+        Animal animal = animalRepository.findById(animalDto.getId()).orElseThrow();
+        animal.setTipo(animalDto.getTipo());
+        animal.setRaca(animalDto.getRaca());
+        animal.setDataNascimento(animalDto.getDataNascimento());
+        return new AnimalDto(animalRepository.save(animal));
+    }
+
+    public void delete(UUID id){
+        Animal animal = animalRepository.findById(id).orElseThrow();
+        animalRepository.delete(animal);
+    }
+
 }

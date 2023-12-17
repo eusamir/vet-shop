@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import vetshop.com.vetshop.DTO.TipoDto;
 
 import java.util.UUID;
 
@@ -23,4 +24,9 @@ public class Tipo {
 
     @Column(name = "NOME", nullable = false)
     private String nome;
+
+    public  Tipo(TipoDto tipoDto){
+        this.id = tipoDto.getId();
+        this.nome = tipoDto.getNome();
+    }
 }

@@ -36,5 +36,14 @@ public class ClienteController {
         return clienteService.create(clienteDto);
     }
 
+    @PutMapping("/update")
+    public  ClienteDto update(@RequestBody ClienteDto clienteDto){
+        return clienteService.update(clienteDto);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable UUID id){
+        clienteService.delete(id);
+    }
 
 }

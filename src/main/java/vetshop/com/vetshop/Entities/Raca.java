@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import vetshop.com.vetshop.DTO.RacaDto;
 
 import java.util.UUID;
 
@@ -23,4 +24,9 @@ public class Raca {
 
     @Column(name = "NOME", nullable = false)
     private String nome;
+
+    public Raca (RacaDto racaDto){
+        this.id = racaDto.getId();
+        this.nome = racaDto.getNome();
+    }
 }

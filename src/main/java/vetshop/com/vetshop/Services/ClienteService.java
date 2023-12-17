@@ -29,4 +29,24 @@ public class ClienteService {
         Cliente cliente = new Cliente(clienteDto);
         return new ClienteDto(clienteRepository.save(cliente));
     }
+
+    public  ClienteDto update(ClienteDto clienteDto){
+        Cliente cliente = clienteRepository.findById(clienteDto.getId()).orElseThrow();
+        cliente.setCep(clienteDto.getCpf());
+        cliente.setNome(clienteDto.getNome());
+        cliente.setNumeroCasa(clienteDto.getNumeroCasa());
+        cliente.setRua(clienteDto.getRua());
+        cliente.setTel1(clienteDto.getTel1());
+        cliente.setTel2(clienteDto.getTel2());
+        cliente.setBairro(clienteDto.getBairro());
+        cliente.setLogradouro(clienteDto.getLogradouro());
+        cliente.setBairro(clienteDto.getBairro());
+
+        return new ClienteDto(clienteRepository.save(cliente));
+    }
+
+    public void delete(UUID id){
+        Cliente cliente = clienteRepository.findById(id).orElseThrow();
+        clienteRepository.delete(cliente);
+    }
 }

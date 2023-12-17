@@ -1,15 +1,8 @@
 package vetshop.com.vetshop.Controllers;
 
-import jakarta.persistence.Table;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vetshop.com.vetshop.DTO.AnimalDto;
-import vetshop.com.vetshop.Entities.Animal;
-import vetshop.com.vetshop.Repositories.IAnimalRepository;
-import vetshop.com.vetshop.Repositories.IClienteRepository;
 import vetshop.com.vetshop.Services.AnimalService;
 
 import java.util.List;
@@ -37,5 +30,15 @@ public class AnimalController {
     @PostMapping("/create")
     public AnimalDto create(@RequestBody AnimalDto animalDto){
         return animalService.create(animalDto);
+    }
+
+    @PutMapping("/update")
+    public AnimalDto update(@RequestBody AnimalDto animalDto){
+        return animalService.update(animalDto);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public  void delete(@PathVariable UUID id){
+        animalService.delete(id);
     }
 }
