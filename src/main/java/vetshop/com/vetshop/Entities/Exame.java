@@ -15,7 +15,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Entity
 @Table(name = "EXAME")
-public class Exame extends Servico{
+public class Exame{
     @Id
     @GeneratedValue(generator = "UUID")
     @Column(name = "ID")

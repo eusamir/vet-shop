@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import vetshop.com.vetshop.DTO.MedicoVeterinarioDto;
 
 import java.util.UUID;
 
@@ -15,7 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Entity
 @Table(name = "MEDICOVETERINARIO")
-public class MedicosVeterinario{
+public class MedicoVeterinario {
     @Id
     @GeneratedValue(generator = "UUID")
     @Column(name = "ID")
@@ -30,4 +31,11 @@ public class MedicosVeterinario{
     @OneToOne
     @JoinColumn(name = "ID_FUNCIONARIO_FK", referencedColumnName = "ID", nullable = false)
     private Funcionario funcionario;
+
+    public MedicoVeterinario(MedicoVeterinarioDto medicoVeterinarioDto){
+        this.id = medicoVeterinarioDto.getId();
+        this.crmv = medicoVeterinarioDto.getCrmv();
+        this.especialidade = medicoVeterinarioDto.getEspecialidade();
+        this.funcionario = medicoVeterinarioDto.getFuncionario();
+    }
 }

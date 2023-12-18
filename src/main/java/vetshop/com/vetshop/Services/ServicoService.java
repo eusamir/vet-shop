@@ -35,8 +35,9 @@ public class ServicoService {
         servico.setDescricao(servicoDto.getDescricao());
         servico.setNome(servicoDto.getNome());
         servico.setValorTratamento(servicoDto.getValorTratamento());
-        servico.setAtendente(servicoDto.getFuncionarioAtendente());
+        servico.setAtendente(servicoDto.getAtendente());
         servico.setAnimal(servicoDto.getAnimal());
+        servico.setIsConsulta(servicoDto.getIsConsulta());
         return new ServicoDto(servicoRepository.save(servico));
     }
 

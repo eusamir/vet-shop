@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import vetshop.com.vetshop.DTO.ConsultaDto;
 
 @Setter
 @Getter
@@ -16,7 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "CONSULTA")
-public class Consulta extends Servico{
+public class Consulta{
     @Id
     @GeneratedValue(generator = "UUID")
     @Column(name = "ID")
@@ -33,5 +34,18 @@ public class Consulta extends Servico{
 
     @ManyToOne
     @JoinColumn(name = "ID_MEDICO_FK", referencedColumnName = "ID", nullable = false)
-    private MedicosVeterinario medico;
+    private MedicoVeterinario medico;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_SERVICO_FK", referencedColumnName = "ID", nullable = false)
+    private Servico servico;
+
+    public Consulta(ConsultaDto consultaDto){
+        this.id = consultaDto.getId();
+        this.dataHoraInicio = consultaDto.getDataHoraInicio();
+        this.dataRetorno = consultaDto.getDataRetorno();
+        this.medico = consultaDto.getMedico();
+        this.servico = consultaDto.getServico();
+        this.historicoRelatado = consultaDto.getHistoricoRelatado();
+    }
 }

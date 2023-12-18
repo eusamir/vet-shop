@@ -32,12 +32,15 @@ public class Servico {
     @Column(name = "DESCRICAO",nullable = false)
     private String descricao;
 
+    @Column(name = "CONSULTA", nullable = false)
+    private Boolean isConsulta;
+
     @ManyToOne
     @JoinColumn(name = "ID_ANIMAL_FK", referencedColumnName = "ID", nullable = false)
     private  Animal animal;
 
     @ManyToOne
-    @JoinColumn(name = "ID_FUNCIONARIO_ATENDENTE_FK", referencedColumnName = "ID", nullable = false)
+    @JoinColumn(name = "ID_ATENDENTE_FK", referencedColumnName = "ID", nullable = false)
     private Funcionario atendente;
 
     public Servico(ServicoDto servicoDto){
@@ -46,6 +49,7 @@ public class Servico {
         this.valorTratamento = servicoDto.getValorTratamento();
         this.descricao = servicoDto.getDescricao();
         this.animal = servicoDto.getAnimal();
-        this.atendente = servicoDto.getFuncionarioAtendente();
+        this.atendente = servicoDto.getAtendente();
+        this.isConsulta = servicoDto.getIsConsulta();
     }
 }

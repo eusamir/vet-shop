@@ -22,7 +22,9 @@ public class ServicoDto {
 
     private Animal animal;
 
-    private Funcionario funcionarioAtendente;
+    private Funcionario atendente;
+
+    private Boolean isConsulta;
     public ServicoDto(){}
 
     public ServicoDto(Servico servico){
@@ -31,6 +33,7 @@ public class ServicoDto {
         this.valorTratamento = servico.getValorTratamento();
         this.descricao = servico.getDescricao();
         this.animal = servico.getAnimal();
-        this.funcionarioAtendente = servico.getAtendente();
+        this.atendente = servico.getAtendente();
+        this.isConsulta = servico.getIsConsulta();
     }
 }
