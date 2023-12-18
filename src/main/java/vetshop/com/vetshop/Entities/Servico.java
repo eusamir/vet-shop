@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import vetshop.com.vetshop.DTO.ServicoDto;
 
 @Setter
 @Getter
@@ -30,4 +31,21 @@ public class Servico {
 
     @Column(name = "DESCRICAO",nullable = false)
     private String descricao;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_ANIMAL_FK", referencedColumnName = "ID", nullable = false)
+    private  Animal animal;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_FUNCIONARIO_ATENDENTE_FK", referencedColumnName = "ID", nullable = false)
+    private Funcionario atendente;
+
+    public Servico(ServicoDto servicoDto){
+        this.id= servicoDto.getId();
+        this.nome = servicoDto.getNome();
+        this.valorTratamento = servicoDto.getValorTratamento();
+        this.descricao = servicoDto.getDescricao();
+        this.animal = servicoDto.getAnimal();
+        this.atendente = servicoDto.getFuncionarioAtendente();
+    }
 }

@@ -16,7 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "CONSULTA")
-public class Consulta {
+public class Consulta extends Servico{
     @Id
     @GeneratedValue(generator = "UUID")
     @Column(name = "ID")
@@ -25,19 +25,11 @@ public class Consulta {
     @Column(name = "DATA_HORA_INICIO", nullable = false)
     private Date dataHoraInicio;
 
-    @Column(name = "DATA_RETORNO", nullable = false)
+    @Column(name = "DATA_RETORNO", nullable = true)
     private Date dataRetorno;
 
     @Column(name = "HISTORICO_RELATADO", nullable = false)
     private String historicoRelatado;
-
-    @ManyToOne
-    @JoinColumn(name = "ID_ANIMAL_FK", referencedColumnName = "ID", nullable = true)
-    private Animal animal;
-
-    @ManyToOne
-    @JoinColumn(name = "ID_FUNCIONARIO_ATENDENTE_FK", referencedColumnName = "ID", nullable = false)
-    private Funcionario atendente;
 
     @ManyToOne
     @JoinColumn(name = "ID_MEDICO_FK", referencedColumnName = "ID", nullable = false)

@@ -16,7 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "TRATAMENTOCONSULTA")
-public class TratamentoConsulta {
+public class TratamentoConsulta{
     @Id
     @GeneratedValue(generator = "UUID")
     @Column(name = "ID")

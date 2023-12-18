@@ -15,7 +15,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Entity
 @Table(name = "MEDICOVETERINARIO")
-public class MedicosVeterinario extends Funcionario{
+public class MedicosVeterinario{
     @Id
     @GeneratedValue(generator = "UUID")
     @Column(name = "ID")
