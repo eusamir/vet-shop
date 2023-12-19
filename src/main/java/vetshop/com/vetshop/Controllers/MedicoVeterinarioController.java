@@ -31,4 +31,14 @@ public class MedicoVeterinarioController {
     public  MedicoVeterinarioDto create(@RequestBody MedicoVeterinarioDto medicoVeterinarioDto){
         return medicoVeterinarioService.create(medicoVeterinarioDto);
     }
+
+    @PutMapping("/update")
+    public  MedicoVeterinarioDto update(@RequestBody MedicoVeterinarioDto medicoVeterinarioDto){
+        return  medicoVeterinarioService.update(medicoVeterinarioDto);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable UUID id){
+        medicoVeterinarioService.delete(id);
+    }
 }

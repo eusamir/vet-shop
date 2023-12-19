@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CurrentTimestamp;
 import vetshop.com.vetshop.DTO.ConsultaDto;
 
 @Setter
@@ -24,6 +25,7 @@ public class Consulta{
     private UUID id;
 
     @Column(name = "DATA_HORA_INICIO", nullable = false)
+    @CurrentTimestamp
     private Date dataHoraInicio;
 
     @Column(name = "DATA_RETORNO", nullable = true)
