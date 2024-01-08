@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import vetshop.com.vetshop.DTO.ExameDto;
 
 import java.util.UUID;
 
@@ -30,4 +31,11 @@ public class Exame{
     @ManyToOne
     @JoinColumn(name = "ID_CONSULTA_FK", referencedColumnName = "ID", nullable = false)
     private Consulta consulta;
+
+    public Exame(ExameDto exameDto){
+        this.id = exameDto.getId();
+        this.nome = exameDto.getNome();
+        this.consulta = exameDto.getConsulta();
+        this.resultado = exameDto.getResultado();
+    }
 }

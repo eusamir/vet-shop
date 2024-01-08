@@ -48,6 +48,10 @@ public class Funcionario {
     @Column(name = "CEP",nullable = false)
     private String cep;
 
+    @OneToOne
+    @JoinColumn(name = "ID_USER_FK", referencedColumnName = "ID", nullable = false)
+    private User user;
+
     public Funcionario (FuncionarioDto funcionarioDto){
         this.id = funcionarioDto.getId();
         this.cep = funcionarioDto.getCep();

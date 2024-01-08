@@ -46,9 +46,12 @@ public class Cliente {
     @Column(name = "NUMERO_CASA",nullable = false)
     private int numeroCasa;
 
-
     @Column(name = "CEP",nullable = false)
     private String cep;
+
+    @OneToOne
+    @JoinColumn(name = "ID_USER_FK", referencedColumnName = "ID", nullable = false)
+    private User user;
 
     public Cliente(ClienteDto clienteDto) {
         this.id = clienteDto.getId();

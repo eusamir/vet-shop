@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import vetshop.com.vetshop.DTO.ReceitaDto;
 
 import java.util.UUID;
 
@@ -26,4 +27,10 @@ public class Receita {
     @ManyToOne
     @JoinColumn(name = "ID_CONSULTA_FK", referencedColumnName = "ID", nullable = false)
     private Consulta consulta;
+
+    public Receita (ReceitaDto receitaDto){
+        this.id = receitaDto.getId();
+        this.consulta= receitaDto.getConsulta();
+        this.prescricao= receitaDto.getPrescricao();
+    }
 }

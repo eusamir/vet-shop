@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import vetshop.com.vetshop.DTO.TratamentoConsultaDto;
 
 @Setter
 @Getter
@@ -35,4 +36,12 @@ public class TratamentoConsulta{
     @ManyToOne
     @JoinColumn(name = "ID_SERVICO_FK",referencedColumnName = "ID",nullable = false)
     private Servico servicoTratamento;
+
+    public TratamentoConsulta(TratamentoConsultaDto tratamentoConsultaDto){
+        this.id = tratamentoConsultaDto.getId();
+        this.consulta = tratamentoConsultaDto.getConsulta();
+        this.servicoTratamento = tratamentoConsultaDto.getServico();
+        this.feito = tratamentoConsultaDto.getFeito();
+        this.dataInicio = tratamentoConsultaDto.getDate();
+    }
 }
