@@ -6,6 +6,6 @@ import vetshop.com.vetshop.Entities.User;
 
 import java.util.UUID;
 
-public interface IUserRepository extends JpaRepository<User, UUID> {
+public interface IUserRepository extends JpaRepository<User, String> {
     UserDetails findByLogin(String login);
 }

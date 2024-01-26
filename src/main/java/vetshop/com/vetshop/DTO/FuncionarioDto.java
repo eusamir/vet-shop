@@ -3,6 +3,7 @@ package vetshop.com.vetshop.DTO;
 import lombok.Getter;
 import lombok.Setter;
 import vetshop.com.vetshop.Entities.Funcionario;
+import vetshop.com.vetshop.Entities.User;
 
 import java.util.UUID;
 
@@ -20,6 +21,8 @@ public class FuncionarioDto {
     private String cep;
     private int numeroCasa;
 
+    private User user;
+
     public FuncionarioDto(){}
 
     public FuncionarioDto(Funcionario funcionario){
@@ -33,5 +36,6 @@ public class FuncionarioDto {
         this.bairro = funcionario.getBairro();
         this.numeroCasa = funcionario.getNumeroCasa();
         this.logradouro = funcionario.getLogradouro();
+        this.user = funcionario.getUser();
     }
 }

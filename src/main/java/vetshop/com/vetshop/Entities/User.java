@@ -31,11 +31,14 @@ public class User implements UserDetails {
     @Column(name = "PASSWORD", nullable = false)
     private String password;
 
-    @Column(name = "ACTIVE", nullable = false)
-    private Boolean active;
-
     @Column(name = "ROLE", nullable = false)
     private UserRole role;
+
+    public User(String login, String password, UserRole role){
+        this.role = role;
+        this.login = login;
+        this.password = password;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -73,6 +76,6 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return active;
+        return true;
     }
 }

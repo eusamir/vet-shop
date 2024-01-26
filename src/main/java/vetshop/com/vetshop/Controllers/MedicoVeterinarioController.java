@@ -10,7 +10,7 @@ import vetshop.com.vetshop.Services.MedicoVeterinarioService;
 import java.util.List;
 import java.util.UUID;
 
-@RequestMapping("/medicoVeterinario")
+@RequestMapping("/medico-veterinario")
 @RestController
 public class MedicoVeterinarioController {
     @Autowired
